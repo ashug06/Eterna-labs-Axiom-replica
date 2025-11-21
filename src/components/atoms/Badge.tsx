@@ -1,7 +1,3 @@
-/**
- * Badge atom component
- * Reusable badge for displaying token status and labels
- */
 
 import React from 'react';
 

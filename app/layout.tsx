@@ -35,7 +35,7 @@ export default function RootLayout({
         {/* Preconnect to external image domain for faster loading */}
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
-        {/* Optimize rendering */}
+    
         <meta name="color-scheme" content="dark" />
       </head>
       <body

@@ -1,7 +1,4 @@
-/**
- * Tokens slice for Redux store
- * Manages price updates and token selection state
- */
+
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PriceUpdate } from '@/types';

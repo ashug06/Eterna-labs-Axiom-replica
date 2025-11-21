@@ -1,7 +1,4 @@
-/**
- * Button atom component
- * Reusable button with multiple variants
- */
+
 
 import React from 'react';
 

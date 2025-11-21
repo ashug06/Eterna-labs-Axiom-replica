@@ -1,7 +1,4 @@
-/**
- * Table Row component
- * Memoized row with hover effects and price transition animations
- */
+
 
 'use client';
 
@@ -34,7 +31,7 @@ export const TableRow: React.FC<TableRowProps> = React.memo(({
   const [flashClass, setFlashClass] = useState('');
   const previousPriceRef = useRef(token.price);
 
-  // Handle price flash animation
+
   useEffect(() => {
     if (priceUpdate && priceUpdate.price !== previousPriceRef.current) {
       const direction = priceUpdate.direction;
@@ -112,22 +109,22 @@ export const TableRow: React.FC<TableRowProps> = React.memo(({
         </div>
       </div>
 
-      {/* Market Cap */}
+      {/**/}
       <div className="w-24 text-right">
         <span className="text-white font-medium">{formatCurrency(token.marketCap)}</span>
       </div>
 
-      {/* Liquidity */}
+      {/*  */}
       <div className="w-24 text-right">
         <span className="text-gray-300">{formatCurrency(token.liquidity)}</span>
       </div>
 
-      {/* Volume */}
+      {/*  */}
       <div className="w-24 text-right">
         <span className="text-gray-300">{formatCurrency(token.volume24h)}</span>
       </div>
 
-      {/* TXNS */}
+      {/*  */}
       <Tooltip content="Buys / Sells">
         <div className="w-28 text-center">
           <div className="flex justify-center gap-1">
@@ -148,7 +145,7 @@ export const TableRow: React.FC<TableRowProps> = React.memo(({
         </Tooltip>
       </div>
 
-      {/* Action */}
+      {/*  */}
       <div className="w-20">
         <Button size="sm" variant="primary" onClick={(e) => { e.stopPropagation(); onSelectToken(token); }}>
           Buy

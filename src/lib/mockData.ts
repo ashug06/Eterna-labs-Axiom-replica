@@ -1,11 +1,7 @@
-/**
- * Mock Token Data Generator (REAL UPDATED TOKENS — 2025)
- * Uses top market cap tokens with stable CoinGecko image URLs.
- */
+
 
 import { TokenPair, TokenBadge, TokenStatus } from "@/types";
 
-// ⚡ REAL, SAFE IMAGE URLs (CoinGecko static icons never break)
 const REAL_TOKENS = [
   { symbol: "BTC", name: "Bitcoin", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png" },
   { symbol: "ETH", name: "Ethereum", image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png" },
@@ -47,7 +43,7 @@ const generateBadges = (liq: number): TokenBadge[] => {
   return out;
 };
 
-// Generate ONE TOKEN
+
 export const generateMockToken = (
   index: number,
   status: TokenStatus = "active"

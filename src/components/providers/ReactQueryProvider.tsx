@@ -1,6 +1,4 @@
-/**
- * React Query Provider wrapper component
- */
+
 
 'use client';
 
@@ -16,7 +14,7 @@ const queryClient = new QueryClient({
       gcTime: 15 * 60 * 1000, // Keep in memory for 15 minutes
       refetchOnMount: false,
       refetchOnReconnect: false,
-      networkMode: 'offlineFirst', // Prefer cached data
+      networkMode: 'offlineFirst', 
     },
   },
 });

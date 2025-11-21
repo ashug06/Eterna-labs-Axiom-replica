@@ -1,7 +1,4 @@
-/**
- * Popover molecule component
- * Accessible popover using Radix UI
- */
+
 
 'use client';
 

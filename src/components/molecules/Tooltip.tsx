@@ -1,7 +1,4 @@
-/**
- * Tooltip molecule component
- * Accessible tooltip using Radix UI
- */
+
 
 'use client';
 

@@ -1,13 +1,8 @@
-/**
- * Color transition utilities for price changes
- * Provides smooth visual feedback for live price updates
- */
+
 
 export type TransitionDirection = 'up' | 'down' | 'neutral';
 
-/**
- * Get transition class based on price direction
- */
+
 export const getPriceTransitionClass = (direction: TransitionDirection): string => {
   switch (direction) {
     case 'up':
@@ -19,9 +14,7 @@ export const getPriceTransitionClass = (direction: TransitionDirection): string 
   }
 };
 
-/**
- * Get background color for price change
- */
+
 export const getPriceBackgroundColor = (direction: TransitionDirection): string => {
   switch (direction) {
     case 'up':
@@ -33,7 +26,5 @@ export const getPriceBackgroundColor = (direction: TransitionDirection): string 
   }
 };
 
-/**
- * CSS class for smooth color transitions
- */
+
 export const TRANSITION_CLASSES = 'transition-colors duration-300 ease-in-out';

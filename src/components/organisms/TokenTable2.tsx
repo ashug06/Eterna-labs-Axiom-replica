@@ -1,7 +1,4 @@
-/**
- * Token Table - Pixel-perfect Axiom Trade replica
- * Matches exact spacing, typography, and visual design
- */
+
 
 'use client';
 
@@ -24,7 +21,7 @@ export const TokenTable2: React.FC<TokenTableProps> = React.memo(({
   const dispatch = useAppDispatch();
   const sortConfig = useAppSelector((state) => state.ui.sortConfig);
 
-  // Sort tokens
+  // Memoized sorted tokens
   const sortedTokens = useMemo(() => {
     if (!tokens.length) return [];
     const sorted = [...tokens].sort((a, b) => {
@@ -124,7 +121,7 @@ export const TokenTable2: React.FC<TokenTableProps> = React.memo(({
 
   return (
     <div className="w-full">
-      {/* Table Header */}
+      {/* */}
       <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr_0.5fr] gap-4 px-4 py-3 border-b border-gray-800/50 text-xs text-gray-500 font-medium">
         <div>Pair Info</div>
         <div className="text-right">

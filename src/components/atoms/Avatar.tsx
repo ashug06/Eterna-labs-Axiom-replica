@@ -1,7 +1,3 @@
-/**
- * Avatar atom component
- * Displays token images with fallback
- */
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -29,14 +25,14 @@ export const Avatar: React.FC<AvatarProps> = React.memo(
 
     return (
       <div
-        onClick={(e) => e.preventDefault()}       // ⛔ block all clicks
+        onClick={(e) => e.preventDefault()}       
         className={`
           relative
           rounded-full
           overflow-visible
           bg-blue-600
           flex items-center justify-center
-          transition-transform duration-200      // smooth hover zoom
+          transition-transform duration-200      
           ${className}
         `}
         style={{

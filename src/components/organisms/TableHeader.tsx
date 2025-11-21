@@ -1,7 +1,4 @@
-/**
- * Table Header component
- * Sortable column headers
- */
+
 
 'use client';
 

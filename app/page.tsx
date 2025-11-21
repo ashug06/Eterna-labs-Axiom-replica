@@ -13,7 +13,7 @@ export default function Home() {
   const [sortBy, setSortBy] = React.useState<'mc' | 'volume' | 'price' | 'age'>('mc');
   const [mobileTab, setMobileTab] = React.useState<'new' | 'final-stretch' | 'migrated'>('new');
 
-  // Fetch initial token data
+  // Fetch initial token data 
   const { data: tokens = [], isLoading, error } = useQuery<TokenPair[]>({
     queryKey: ['tokens'],
     queryFn: () => fetchTokens(),
@@ -21,8 +21,7 @@ export default function Home() {
 
   // Disable WebSocket initially for better performance
   const [wsEnabled, setWsEnabled] = React.useState(false);
-  
-  // Enable WebSocket after initial render
+ 
   React.useEffect(() => {
     const timer = setTimeout(() => setWsEnabled(true), 1500);
     return () => clearTimeout(timer);
@@ -164,7 +163,7 @@ export default function Home() {
             </div>
           </div>
         </header>
-
+        
         {/* Main Content */}
         {/* Main Content Area - Flex Container */}
         <div className="flex-1 overflow-hidden flex flex-col mx-1.5">
@@ -225,6 +224,8 @@ export default function Home() {
                 </button>
               
               
+              {/* displayMenu */}
+            
               <DisplayMenu
   isOpen={displayOpen}
   toggleOpen={() => setDisplayOpen(!displayOpen)}

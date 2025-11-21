@@ -1,7 +1,4 @@
-/**
- * Redux Toolkit store configuration
- * Handles UI state, sorting, filters, and modal states
- */
+
 
 import { configureStore } from '@reduxjs/toolkit';
 import tokensReducer from './slices/tokensSlice';

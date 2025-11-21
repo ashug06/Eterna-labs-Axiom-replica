@@ -1,7 +1,4 @@
-/**
- * Token Detail Modal
- * Displays comprehensive token information
- */
+
 
 'use client';
 
@@ -70,7 +67,7 @@ export const TokenDetailModal: React.FC = React.memo(() => {
             </div>
           </div>
 
-          {/* Stats Grid */}
+          {/* */}
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-gray-800/50 rounded-lg p-4">
               <div className="flex items-center gap-2 text-gray-400 text-sm mb-1">

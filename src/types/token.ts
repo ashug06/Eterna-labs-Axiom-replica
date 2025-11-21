@@ -1,7 +1,4 @@
-/**
- * Core type definitions for token trading pairs
- * Strict typing for all token-related data structures
- */
+
 
 export interface TokenPair {
   id: string;

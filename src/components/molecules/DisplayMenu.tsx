@@ -1,4 +1,4 @@
-// components/molecules/DisplayMenu.tsx
+
 'use client';
 
 import React from 'react';
@@ -11,15 +11,10 @@ interface DisplayMenuProps {
   toggleOpen: () => void;
   sortBy: SortKey;
   setSortBy: (s: SortKey) => void;
-  // optional: if using an external button in parent, you can render only panel by passing `trigger={false}`
   trigger?: boolean;
 }
 
-/**
- * DisplayMenu - improved, accessible, and pixel-tight version.
- * - Handles click-outside + Escape internally.
- * - Fixed dimensions, scroll area, and footer actions stay pinned.
- */
+
 const DisplayMenu: React.FC<DisplayMenuProps> = ({
   isOpen,
   toggleOpen,
@@ -42,7 +37,6 @@ const DisplayMenu: React.FC<DisplayMenuProps> = ({
 
   const panelRef = React.useRef<HTMLDivElement | null>(null);
 
-  // close on outside click
   React.useEffect(() => {
     if (!isOpen) return;
 
@@ -65,7 +59,6 @@ const DisplayMenu: React.FC<DisplayMenuProps> = ({
     };
   }, [isOpen, toggleOpen]);
 
-  // small helper for toggle switch visual
   const Switch = ({ checked, onChange }: { checked: boolean; onChange: () => void }) => (
     <button
       role="switch"
@@ -85,7 +78,7 @@ const DisplayMenu: React.FC<DisplayMenuProps> = ({
 
   return (
     <div className="relative" aria-haspopup="menu">
-      {/* optional internal trigger if you prefer */}
+      {/* optional internal trigger */}
       {trigger && (
         <button
           onClick={toggleOpen}
@@ -110,7 +103,7 @@ const DisplayMenu: React.FC<DisplayMenuProps> = ({
           aria-label="Display settings"
           className="absolute right-0 top-full mt-2 z-50"
         >
-          {/* container */}
+          {}
           <div
             className="w-[420px] max-h-[68vh] bg-[#0f1012] border border-gray-800 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.7)] overflow-hidden"
             style={{ minWidth: 320 }}
@@ -245,7 +238,7 @@ const DisplayMenu: React.FC<DisplayMenuProps> = ({
               </div>
             </div>
 
-            {/* footer actions (pinned) */}
+            {}
             <div className="px-4 py-3 border-t border-gray-800/50 flex items-center gap-2 bg-[#0f1012]">
               <button
                 onClick={() => { setSortBy('mc'); toggleOpen(); }}
@@ -270,7 +263,7 @@ const DisplayMenu: React.FC<DisplayMenuProps> = ({
 
 export default DisplayMenu;
 
-/* ----------------- small UI helpers below ----------------- */
+/* small UI helpers */
 
 function Tab({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
@@ -291,7 +284,7 @@ function ToggleRow({ label, sub, checked, onChange, className = '' }: any) {
         {sub && <div className="text-xs text-gray-400">{sub}</div>}
       </div>
       <div>
-        {/* the switch visual used above */}
+        {/*  */}
         <button onClick={onChange} className="focus:outline-none" aria-pressed={checked}>
           <div className={`w-10 h-5 rounded-full ${checked ? 'bg-gray-600' : 'bg-gray-700'} relative`}>
             <span className={`absolute top-0.5 left-1 h-4 w-4 rounded-full bg-white transform transition ${checked ? 'translate-x-5' : ''}`}></span>

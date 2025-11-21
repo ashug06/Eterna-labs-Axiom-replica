@@ -1,7 +1,4 @@
-/**
- * Skeleton loader component
- * Loading state with shimmer effect
- */
+
 
 'use client';
 

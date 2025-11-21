@@ -1,6 +1,3 @@
-/**
- * Redux Provider wrapper component
- */
 
 'use client';
 

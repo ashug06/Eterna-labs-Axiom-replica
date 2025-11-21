@@ -1,7 +1,4 @@
-/**
- * Error Boundary component
- * Catches and displays errors gracefully
- */
+
 
 'use client';
 

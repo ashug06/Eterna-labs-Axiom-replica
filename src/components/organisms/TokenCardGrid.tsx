@@ -1,7 +1,4 @@
-/**
- * Token Card Grid - Pixel-perfect Axiom Trade Pulse Page Replica
- * Three independently scrollable columns: New Pairs | Final Stretch | Migrated
- */
+
 
 'use client';
 
@@ -59,11 +56,10 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
   const priceUpdate = useAppSelector((state) => state.tokens.priceUpdates[token.id]);
   const isPositive = token.priceChange24h >= 0;
   
-  // Use updated price if available, otherwise use token price
+  
   const currentPrice = priceUpdate?.price ?? token.price;
   const priceDirection = priceUpdate?.direction;
-  
-  // Random percentage values for indicators
+
   const percentages = {
     p1: Math.floor(Math.random() * 70),
     p2: Math.floor(Math.random() * 30),
@@ -72,7 +68,6 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
     p5: Math.floor(Math.random() * 30),
   };
 
-  // Dynamic status badges with pill styling (reduced to 4 for better mobile performance)
   const statusBadges = [
     { label: `${percentages.p1}%`, color: percentages.p1 > 30 ? 'text-red-500' : 'text-emerald-500', tooltip: 'Top Holder %', icon: 0 },
     { label: `${percentages.p2}%`, color: percentages.p2 > 15 ? 'text-emerald-500' : 'text-red-500', tooltip: 'Liquidity Score', icon: 1 },
@@ -82,7 +77,7 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
 
   return (
     <div className="bg-[#111111] border-b border-r border-[#1f2937]/50 hover:bg-[#151515] active:bg-[#1a1a1a] transition-all px-2 sm:px-4 py-2 flex gap-2 sm:gap-2.5 group card-shimmer">
-      {/* Left Column: Image + Username (takes full height) */}
+      {/* */}
       <div className="shrink-0 flex flex-col justify-between">
         <Popover
           content={
@@ -118,13 +113,13 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
         </div>
       </div>
 
-      {/* Right Content: Token Info + Stats + Badges */}
+      {/**/}
       <div className="flex-1 min-w-0 flex flex-col justify-between">
-        {/* Top Row: Name/Details | Stats */}
+        {/* */}
         <div className="flex items-start justify-between gap-2 mb-1">
-          {/* Token Info */}
+          {/* */}
           <div className="flex-1 min-w-0">
-            {/* Symbol + Full Name */}
+            {/*  */}
             <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
               <h3 className="font-bold text-white text-[17px] hover:text-blue-400 transition-colors">{token.symbol}</h3>
               <span className="text-gray-500 text-[15px] truncate font-semibold">{token.name}</span>
@@ -135,7 +130,7 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
               )}
             </div>
             
-            {/* Age + Icons Row - Simplified for performance */}
+            {/* */}
             <div className="flex items-center gap-2.5 text-xs">
               <Tooltip content="Token Age">
                 <span className="text-teal-400 font-semibold text-[13px]">{token.age}</span>
@@ -164,7 +159,7 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
             </div>
           </div>
 
-          {/* Right: Stats Column */}
+          {/*  */}
           <div className="text-right shrink-0 space-y-0">
             <Tooltip content="Market Cap">
               <div className={`flex items-center justify-end gap-1.5 transition-all duration-300 ${
@@ -208,9 +203,9 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
           </div>
         </div>
 
-        {/* Bottom Row: Status Badges | Button */}
+       
         <div className="flex items-center justify-between gap-2 overflow-hidden mt-auto">
-          {/* Status Badges Row - Pills */}
+       
           <div className="flex items-center gap-1.5 text-xs font-semibold shrink min-w-0 overflow-x-hidden">
             {statusBadges.map((badge, idx) => (
               <Tooltip key={idx} content={badge.tooltip}>
@@ -226,7 +221,7 @@ const TokenCard: React.FC<{ token: TokenPair }> = React.memo(({ token }) => {
             ))}
           </div>
 
-          {/* Action Button */}
+          
           <Tooltip content="Quick Trade">
             <button 
               className="px-2.5 py-0.5 bg-blue-600 hover:bg-blue-400 text-white text-[13px] font-bold rounded-full flex items-center justify-center gap-1 transition-all shrink-0 hover:shadow-lg hover:shadow-blue-500/30"
@@ -278,9 +273,8 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
       
       <div className="flex items-center gap-2">
         
-        {/* Pill-shaped control bar */}
         <div className="flex items-center gap-0 bg-[#0a0a0a] rounded-full px-3 py-1.5 border border-gray-800/50">
-        {/* Left section: Lightning + Count */}
+        
         <div className="flex items-center gap-1.5 mx-2">
           <svg className="w-3.5 h-3.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
@@ -288,7 +282,6 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
           <span className="text-white text-xs font-semibold">0</span>
         </div>
 
-        {/* Center section: Solana logo */}
         <div className="flex items-center gap-2 px-3">
           <svg className="w-4 h-4" viewBox="0 0 397.7 311.7">
             <defs>
@@ -303,10 +296,8 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
           </svg>
         </div>
 
-        {/* Vertical divider */}
         <div className="w-px h-4 bg-gray-700/50" />
 
-        {/* Tabs section */}
         <div className="flex items-center gap-0 px-3">
           <button
             onClick={() => setActiveTab('P1')}
@@ -340,7 +331,6 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
           </button>
         </div>
 
-          {/* Right section: Settings icon with blue dot */}
           <div className="flex items-center gap-2">
             <button 
               onClick={() => setIsFilterOpen(true)}
@@ -349,14 +339,12 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
               <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
-              {/* Blue notification dot - top right corner */}
               <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-blue-500 rounded-full" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Filter Modal */}
       <Modal
         open={isFilterOpen}
         onOpenChange={setIsFilterOpen}
@@ -364,7 +352,6 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
         size="lg"
       >
         <div className="space-y-4">
-          {/* Status Tabs */}
           <div className="flex items-center gap-2 border-b border-gray-800 pb-3">
             <button className="px-3 py-1.5 bg-gray-800 text-white rounded-md text-sm font-semibold">
               New Pairs <span className="ml-1 text-gray-400">2</span>
@@ -380,7 +367,6 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
             </button>
           </div>
 
-          {/* Protocols Section */}
           <div>
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-white font-semibold">Protocols</h3>
@@ -471,7 +457,6 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = React.memo(({ title, count, ic
 
 ColumnHeader.displayName = 'ColumnHeader';
 
-// Column component with infinite loading
 const TokenColumn: React.FC<{
   status: TokenStatus;
   title: string;
@@ -480,7 +465,6 @@ const TokenColumn: React.FC<{
 }> = React.memo(({ status, title, icon, globalSortBy }) => {
   const listRef = React.useRef<any>(null);
   
-  // Infinite query for this column
   const {
     data,
     fetchNextPage,
@@ -495,7 +479,6 @@ const TokenColumn: React.FC<{
     initialPageParam: 0,
   });
 
-  // Flatten all pages into single array
   const tokens = React.useMemo(
     () => data?.pages.flatMap((page) => page.tokens) ?? [],
     [data]
@@ -503,11 +486,9 @@ const TokenColumn: React.FC<{
 
   const totalCount = data?.pages[0]?.total ?? 0;
 
-  // Handle scroll to load more
   const handleScroll = React.useCallback((event: React.UIEvent<HTMLDivElement>) => {
     const { scrollTop, scrollHeight, clientHeight } = event.currentTarget;
     
-    // Load more when scrolled to bottom 200px
     if (scrollHeight - scrollTop - clientHeight < 200 && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
@@ -522,7 +503,6 @@ const TokenColumn: React.FC<{
         onScroll={handleScroll}
       >
         {isLoading ? (
-          // Loading skeleton
           Array.from({ length: 5 }).map((_, i) => (
             <div key={i} className="h-[120px] bg-[#1a1a1a] border-b border-r border-[#1f2937]/50 animate-pulse p-2 flex gap-2.5">
               <div className="w-[76px] h-[76px] bg-[#222222] rounded-md" />
@@ -540,14 +520,12 @@ const TokenColumn: React.FC<{
               <TokenCard key={token.id} token={token} />
             ))}
             
-            {/* Loading more indicator */}
             {isFetchingNextPage && (
               <div className="p-4 text-center">
                 <div className="inline-block w-6 h-6 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
               </div>
             )}
             
-            {/* End indicator */}
             {!hasNextPage && tokens.length > 0 && (
               <div className="p-3 text-center text-gray-500 text-xs">
                 All {totalCount} tokens loaded
@@ -567,14 +545,12 @@ export const TokenCardGrid: React.FC<TokenCardGridProps> = ({ tokens, isLoading,
 
   return (
     <div className="flex-1 overflow-hidden min-h-0 mb-6 flex flex-col">
-      {/* Mobile/Tablet: Single Column (< lg - below 1024px) - tabs are in parent */}
       <div className="lg:hidden flex flex-col flex-1 overflow-hidden min-h-0">
         {mobileTab === 'new' && <TokenColumn status="new" title="New Pairs" icon={<Zap className="w-4 h-4 text-yellow-400" />} globalSortBy={globalSortBy} />}
         {mobileTab === 'final-stretch' && <TokenColumn status="final-stretch" title="Final Stretch" icon={<Flame className="w-4 h-4 text-yellow-400" />} globalSortBy={globalSortBy} />}
         {mobileTab === 'migrated' && <TokenColumn status="migrated" title="Migrated" icon={<CheckCircle2 className="w-4 h-4 text-green-400" />} globalSortBy={globalSortBy} />}
       </div>
 
-      {/* Desktop: 3 Columns Side by Side with Progressive Loading (lg and above - 1024px+) */}
       <div className="hidden lg:grid grid-cols-3 gap-0 flex-1 overflow-hidden min-h-0 mb-6 rounded-lg">
         <TokenColumn 
           status="new" 

@@ -1,7 +1,4 @@
-/**
- * Modal molecule component
- * Accessible modal dialog using Radix UI
- */
+
 
 'use client';
 
@@ -38,7 +35,7 @@ export const Modal: React.FC<ModalProps> = React.memo(({
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/80 animate-in fade-in-0" />
 
-        {/* ⭐ ONLY CHANGE HERE → added overflow-visible */}
+        {/* */}
         <DialogPrimitive.Content
           className={`
             fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%]

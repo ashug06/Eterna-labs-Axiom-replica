@@ -1,7 +1,4 @@
-/**
- * UI slice for Redux store
- * Manages sorting, filters, and UI interaction states
- */
+
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { SortConfig, TokenFilters, TokenStatus } from '@/types';

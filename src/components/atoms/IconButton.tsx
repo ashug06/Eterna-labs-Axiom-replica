@@ -1,27 +1,21 @@
-/**
- * IconButton Atom Component
- * Reusable icon button with consistent styling and accessibility
- * 
- * @example
- * <IconButton icon={<Menu />} onClick={handleClick} ariaLabel="Open menu" />
- */
+
 
 import React from 'react';
 
 export interface IconButtonProps {
-  /** Icon component to display */
+ 
   icon: React.ReactNode;
-  /** Click handler */
+  
   onClick?: () => void;
-  /** Accessible label for screen readers */
+  
   ariaLabel: string;
-  /** Visual variant of the button */
+  
   variant?: 'default' | 'primary' | 'ghost';
-  /** Size of the button */
+  
   size?: 'sm' | 'md' | 'lg';
-  /** Additional CSS classes */
+  
   className?: string;
-  /** Whether button is disabled */
+  
   disabled?: boolean;
 }
 

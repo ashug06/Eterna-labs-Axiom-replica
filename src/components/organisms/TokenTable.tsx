@@ -1,7 +1,4 @@
-/**
- * Token Table organism component
- * Main table displaying token pairs with sorting and real-time updates
- */
+
 
 'use client';
 
@@ -26,7 +23,6 @@ export const TokenTable: React.FC<TokenTableProps> = React.memo(({
   const dispatch = useAppDispatch();
   const sortConfig = useAppSelector((state) => state.ui.sortConfig);
 
-  // Sort tokens based on current sort configuration
   const sortedTokens = useMemo(() => {
     if (!tokens.length) return [];
 
@@ -35,7 +31,7 @@ export const TokenTable: React.FC<TokenTableProps> = React.memo(({
       let aValue: number = 0;
       let bValue: number = 0;
 
-      // Type-safe field access
+    
       switch (field) {
         case 'marketCap':
           aValue = a.marketCap;
@@ -58,7 +54,7 @@ export const TokenTable: React.FC<TokenTableProps> = React.memo(({
           bValue = b.priceChange24h;
           break;
         case 'age':
-          // For age, just return 0 for now (string comparison would be complex)
+          // For age, just return 0
           return 0;
       }
 
@@ -76,7 +72,7 @@ export const TokenTable: React.FC<TokenTableProps> = React.memo(({
     }));
   }, [dispatch, sortConfig]);
 
-  // Handle token selection
+
   const handleSelectToken = useCallback((token: TokenPair) => {
     dispatch(selectToken(token.id));
     dispatch(toggleModal());
