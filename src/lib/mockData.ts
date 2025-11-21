@@ -7,6 +7,23 @@ const REAL_TOKENS = [
   { symbol: "BTC", name: "Bitcoin", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png" },
   { symbol: "ETH", name: "Ethereum", image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png" },
   { symbol: "SOL", name: "Solana", image: "https://assets.coingecko.com/coins/images/4128/large/solana.png" },
+  { symbol: "USDT", name: "Tether", image: "https://assets.coingecko.com/coins/images/325/large/Tether.png" },
+  { symbol: "USDC", name: "USD Coin", image: "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png" },
+  { symbol: "BNB", name: "BNB", image: "https://assets.coingecko.com/coins/images/825/large/binance-coin-logo.png" },
+  { symbol: "XRP", name: "XRP", image: "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png" },
+  { symbol: "ADA", name: "Cardano", image: "https://assets.coingecko.com/coins/images/975/large/cardano.png" },
+  { symbol: "DOGE", name: "Dogecoin", image: "https://assets.coingecko.com/coins/images/5/large/dogecoin.png" },
+  { symbol: "AVAX", name: "Avalanche", image: "https://assets.coingecko.com/coins/images/12559/large/coin-round-red.png" },
+  { symbol: "DOT", name: "Polkadot", image: "https://assets.coingecko.com/coins/images/12171/large/polkadot.png" },
+  { symbol: "SHIB", name: "Shiba Inu", image: "https://assets.coingecko.com/coins/images/11939/large/shiba.png" },
+  { symbol: "LINK", name: "Chainlink", image: "https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png" },
+  { symbol: "TRX", name: "TRON", image: "https://assets.coingecko.com/coins/images/1094/large/tron-logo.png" },
+  { symbol: "WBTC", name: "Wrapped Bitcoin", image: "https://assets.coingecko.com/coins/images/7598/large/wrapped_bitcoin_wbtc.png" },
+  { symbol: "LTC", name: "Litecoin", image: "https://assets.coingecko.com/coins/images/2/large/litecoin.png" },
+  { symbol: "MATIC", name: "Polygon", image: "https://assets.coingecko.com/coins/images/4713/large/polygon.png" },
+  { symbol: "ATOM", name: "Cosmos", image: "https://assets.coingecko.com/coins/images/1481/large/cosmos_hub.png" },
+  { symbol: "ETC", name: "Ethereum Classic", image: "https://assets.coingecko.com/coins/images/453/large/ethereum-classic-logo.png" },
+  { symbol: "APT", name: "Aptos", image: "https://assets.coingecko.com/coins/images/26455/large/aptos.png" },
 ];
 
 const r = (min: number, max: number) => Math.random() * (max - min) + min;
