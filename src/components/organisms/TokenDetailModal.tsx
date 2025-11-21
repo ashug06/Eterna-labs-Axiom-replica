@@ -58,7 +58,7 @@ export const TokenDetailModal: React.FC = React.memo(() => {
               <h3 className="text-xl font-semibold text-white">{token.name}</h3>
               <p className="text-gray-400">{token.symbol}</p>
               <div className="flex gap-2 mt-2">
-                {token.badges.map((badge, i) => (
+                {token.badges.map((badge : any, i : any) => (
                   <Badge key={i} variant="info">
                     {badge.label || badge.type}
                   </Badge>
