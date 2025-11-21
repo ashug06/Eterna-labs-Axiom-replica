@@ -204,17 +204,12 @@ NEXT_PUBLIC_WS_URL=your-websocket-url
 - Supports modern browsers including Chrome, Firefox, and Safari.
 
 ## Responsive Design Screenshots
-| Desktop View (1440×900) | Tablet View (1024×768) | Mobile View (375×812 / 320px) |
-|:-----------------------:|:----------------------:|:-----------------------------:|
-| ![Desktop view](screenshots/desktop.png) <br> *Desktop — 1440×900* | ![Tablet view](screenshots/tablet.png) <br> *Tablet — 1024×768* | ![Mobile view](screenshots/mobile.png) <br> *Mobile — 375×812 / 320px* |
 
-HTML variant (use if you want fixed preview sizes in README):
-<p>
-  <img src="screenshots/desktop.png" alt="Desktop view — 1440x900" width="800" style="margin-right:12px" />
-  <img src="screenshots/tablet.png" alt="Tablet view — 1024x768" width="420" style="margin-right:12px" />
-  <img src="screenshots/mobile.png" alt="Mobile view — 375x812" width="200" />
-</p>
-<p><em>Left: Desktop. Center: Tablet. Right: Mobile (including smallest 320px breakpoint).</em></p>
+| Desktop View (1440×900) | Tablet View (1024×768) | Mobile View (375×812) |
+|:-----------------------:|:----------------------:|:----------------------:|
+| <img src="screenshots/Desktop.png" width="350" /> <br> *Desktop* | <img src="screenshots/Tablet.png" width="250" /> <br> *Tablet* | <img src="screenshots/Mobile.png" width="150" /> <br> *Mobile* |
+
+
 
 
 ## Performance Goals
