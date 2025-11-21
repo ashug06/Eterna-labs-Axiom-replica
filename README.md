@@ -1,156 +1,150 @@
-# Axiom Trade Clone
+# Eterna Frontend - Axiom Trade Pulse Replica
 
-A high-performance token discovery platform replicating Axiom Trade's Pulse page. Built with Next.js 16, TypeScript, and modern web technologies.
+Welcome to the Eterna Frontend project, a sophisticated web application designed to replicate the Pulse section of Axiom Trade. This platform is built using Next.js 16, TypeScript, and a suite of modern web technologies, providing users with a seamless experience in token discovery.
 
-## Quick Start
+## Live Demo
+
+You can view the live application at [Eterna Labs Axiom Replica](https://eterna-labs-axiom-replica.vercel.app/).
+
+## Video Demonstration
+
+Watch a quick demonstration of the application's functionality on YouTube: [Eterna Frontend Demo](https://youtu.be/jKngLnH_Iyw).
+
+## Getting Started
+
+To set up the project on your local machine, follow these steps:
 
 ```bash
-# Install dependencies
+# Clone the repository
+git clone https://github.com/ashug06/Eterna-labs-Axiom-replica.git
+
+# Install all dependencies
 npm install
 
-# Run development server
+# Start the development server
 npm run dev
 
-# Build for production
+# Build the application for production
 npm run build
 
-# Start production server
+# Launch the production server
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+You can access the application at [http://localhost:3000](http://localhost:3000).
 
-## Features
+## Key Features
 
-**Token Discovery**
-- Three categories: New Pairs, Final Stretch, Migrated
-- Real-time price updates every 2 seconds
-- Smooth color transitions on price changes
-- Progressive loading (100 tokens per column)
+### Token Discovery Interface
+- **Categories**: Explore tokens across three distinct sections: New Pairs, Final Stretch, and Migrated.
+- **Real-Time Updates**: Prices refresh every 2 seconds, ensuring users have the latest information.
+- **Progressive Loading**: Efficiently loads up to 100 tokens per column, enhancing user experience.
 
-**Responsive Design**
-- Desktop (1024px+): Three-column layout with independent scrolling
-- Tablet (640-1024px): Tab navigation inside grid
-- Mobile (<640px): Tab navigation outside grid
-- Optimized down to 320px width
+### Responsive Design
+- **Desktop View**: A three-column layout with independent scrolling for each section (≥ 1024px).
+- **Tablet View**: Tabbed navigation within the grid for devices between 640px and 1024px.
+- **Mobile View**: Tabbed navigation outside the grid for screens smaller than 640px.
+- Fully optimized for widths down to 320px.
 
-**Interactive Components**
-- Tooltips (Radix UI)
-- Filter modal with settings
-- Image preview popover
-- Sorting by market cap, volume, price, age
+### Interactive Elements
+- **Tooltips**: Implemented using Radix UI for improved accessibility.
+- **Filter Modal**: Users can sort tokens based on various metrics.
+- **Image Preview Popover**: Displays additional information when hovering over tokens.
+- **Sorting Options**: Sort tokens by market cap, volume, price, or age.
 
-**Performance**
-- Lighthouse score: 90+ on mobile and desktop
-- React Query infinite scroll
-- Memoized components
-- Lazy image loading
-- Delayed WebSocket initialization
+### Performance Metrics
+- Achieves a Lighthouse score of 90+ on both mobile and desktop platforms.
+- Utilizes React Query for infinite scrolling and efficient data fetching.
+- Implements memoization techniques to optimize rendering performance.
 
 ## Technical Stack
 
-**Core**
-- Next.js 16.0.3 (App Router, Turbopack)
-- TypeScript 5.x (strict mode)
-- Tailwind CSS 4.1.17
-- Redux Toolkit
-- TanStack Query v5
-- Radix UI
+- **Framework**: Next.js 16.0.3 (with App Router and Turbopack)
+- **Language**: TypeScript 5.x (strict mode)
+- **Styling**: Tailwind CSS 4.1.17
+- **State Management**: Redux Toolkit
+- **Data Fetching**: TanStack Query v5
+- **UI Components**: Radix UI for accessible components
 
-**Architecture**
-- Atomic design pattern (atoms, molecules, organisms)
-- Type-safe Redux with RTK
-- Progressive data loading
-- Client-side rendering with SSR-ready structure
-
-## Project Structure
+## Project Structure Overview
 
 ```
 src/
 ├── components/
-│   ├── atoms/          # Button, Badge, Avatar, IconButton
-│   ├── molecules/      # Tooltip, Modal, Popover
-│   ├── organisms/      # TokenCardGrid, TokenTable
-│   └── providers/      # Redux, React Query
+│   ├── atoms/          # Basic UI elements (Button, Badge, Avatar, IconButton)
+│   ├── molecules/      # Composed UI elements (Tooltip, Modal, Popover)
+│   ├── organisms/      # Complex components (TokenCardGrid, TokenTable)
+│   └── providers/      # Context providers for Redux and React Query
 ├── hooks/
 │   └── useWebSocketMock.ts
 ├── lib/
-│   ├── api.ts         # Data fetching with pagination
-│   └── mockData.ts    # Token generation
+│   ├── api.ts         # API calls and data fetching logic
+│   └── mockData.ts    # Mock data generation for testing
 ├── store/
-│   ├── slices/        # Redux state slices
-│   └── hooks.ts       # Typed Redux hooks
-├── types/             # TypeScript definitions
-└── utils/             # Formatters and helpers
+│   ├── slices/        # Redux slices for state management
+│   └── hooks.ts       # Custom hooks for typed Redux access
+├── types/             # TypeScript type definitions
+└── utils/             # Utility functions and formatters
 
 app/
-├── layout.tsx         # Root layout with providers
-├── page.tsx           # Main page component
-└── globals.css        # Global styles and optimizations
+├── layout.tsx         # Main layout component with providers
+├── page.tsx           # Home page component
+└── globals.css        # Global styles and configurations
 ```
 
-## Key Implementation Details
+## Implementation Insights
 
-**Infinite Scroll**
-- Initial load: 60 tokens (20 per column)
-- Progressive loading: 20 tokens per batch
-- Total capacity: 100 tokens per column
-- Scroll trigger: 200px from bottom
+### Infinite Scrolling
+- Initial load of 60 tokens (20 per column).
+- Progressive loading of 20 tokens as the user scrolls down.
+- Total capacity of 100 tokens per column, with a scroll trigger set at 200px from the bottom.
 
-**Unique ID Generation**
+### Unique ID Management
 ```typescript
-// Each status gets unique ID range to prevent conflicts
-statusOffsets = {
-  'new': 0,           // 0-999
-  'final-stretch': 1000,  // 1000-1999
-  'migrated': 2000,   // 2000-2999
+// Unique ID ranges for each token status
+const statusOffsets = {
+  'new': 0,           // IDs 0-999
+  'final-stretch': 1000,  // IDs 1000-1999
+  'migrated': 2000,   // IDs 2000-2999
 }
 ```
 
-**Real-Time Updates**
-- WebSocket simulation with setInterval
-- Updates 2-5 random tokens every 2 seconds
-- Dual state: Redux (UI) + React Query (cache)
-- Price changes: up to ±5% per update
+### Real-Time Price Updates
+- Simulated WebSocket updates using setInterval.
+- Randomly updates 2-5 tokens every 2 seconds.
+- Maintains dual state management with Redux for UI and React Query for caching.
 
-**Memoization Strategy**
-- TokenCard: React.memo on token prop
-- TokenColumn: React.memo on status and sortBy
-- Scroll handlers: useCallback with dependencies
-- Derived values: useMemo for token arrays
+### Memoization Techniques
+- Utilizes `React.memo` for components like TokenCard and TokenColumn.
+- Employs `useCallback` and `useMemo` to optimize performance and prevent unnecessary re-renders.
 
-## Performance Optimizations
+## Performance Enhancements
 
-**Bundle Size**
-- Code splitting with dynamic imports
-- Tree-shaking for Lucide icons
-- CSS minification
-- No source maps in production
+### Bundle Optimization
+- Dynamic imports for code splitting.
+- Tree-shaking to eliminate unused code.
+- CSS minification for reduced file size.
 
-**Rendering**
-- React.memo on expensive components
-- CSS containment for isolated repaints
-- GPU-accelerated animations
-- content-visibility for off-screen cards
+### Rendering Improvements
+- React.memo for heavy components.
+- CSS containment to limit repaints.
+- GPU-accelerated animations for smoother transitions.
 
-**Data Management**
-- React Query cache: 10 minutes
-- Stale time: Infinity (no auto-refetch)
-- Delayed WebSocket start (1.5s after mount)
-- Pagination for reduced initial load
+### Data Management
+- React Query cache duration set to 10 minutes.
+- Stale time configured to Infinity to avoid unnecessary refetching.
+- WebSocket initialization delayed for 1.5 seconds after component mount.
 
-**Images**
-- Lazy loading with loading="lazy"
-- Async decoding
-- Explicit width/height to prevent CLS
-- AVIF and WebP formats
+### Image Handling
+- Implements lazy loading for images.
+- Uses AVIF and WebP formats for better compression.
+- Explicit width and height attributes to prevent layout shifts.
 
-**Fonts**
-- Inter font with display: swap
-- Preload for critical font files
-- Subset loading for reduced size
+### Font Optimization
+- Uses the Inter font with a swap display strategy.
+- Preloads critical font files for faster rendering.
 
-## Configuration
+## Configuration Files
 
 **next.config.ts**
 ```typescript
@@ -179,57 +173,53 @@ statusOffsets = {
 }
 ```
 
-## Environment
+## Environment Variables
 
-No environment variables required. Works out of the box with mock data.
+No environment variables are required for local development. For production API integration, set the following:
 
-For production API integration, add:
 ```bash
 NEXT_PUBLIC_API_URL=your-api-url
 NEXT_PUBLIC_WS_URL=your-websocket-url
 ```
 
-## Development
+## Development Practices
 
-**Code Quality**
-- TypeScript strict mode
-- ESLint with Next.js config
-- Comprehensive type definitions
-- No any types
+### Code Quality
+- Enforced TypeScript strict mode.
+- ESLint configured for Next.js.
+- Comprehensive type definitions throughout the codebase.
 
-**State Management**
-- Redux: UI state, price updates
-- React Query: Server state, caching
-- Local state: Component-specific
+### State Management
+- Redux for UI state and price updates.
+- React Query for server state and caching.
+- Local state management for component-specific needs.
 
-**Component Patterns**
-- Atomic design
-- Props interfaces with JSDoc
-- Display names for debugging
-- Error boundaries
+### Component Design
+- Follows atomic design principles.
+- Uses JSDoc for prop interfaces.
+- Implements error boundaries for robust error handling.
 
-## Browser Support
+## Browser Compatibility
 
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers with modern CSS support
-## Mobile Responsive Design
+- Supports modern browsers including Chrome, Firefox, and Safari.
 
-## Mobile Responsive Design
+## Responsive Design Screenshots
+| Desktop View (1440×900) | Tablet View (1024×768) | Mobile View (375×812 / 320px) |
+|:-----------------------:|:----------------------:|:-----------------------------:|
+| ![Desktop view](screenshots/desktop.png) <br> *Desktop — 1440×900* | ![Tablet view](screenshots/tablet.png) <br> *Tablet — 1024×768* | ![Mobile view](screenshots/mobile.png) <br> *Mobile — 375×812 / 320px* |
 
-| Desktop View | Tablet View | Mobile View |
-|:------------:|:-----------:|:-----------:|
-| ![Desktop View](https://github.com/user-attachments/assets/b30d78b4-6c67-405c-9356-621fae0a5fc3) | ![Tablet View](https://github.com/user-attachments/assets/07c3b3c8-96df-413c-a00c-8230823eb9c4) | ![Mobile View](https://github.com/user-attachments/assets/5cbb9e3e-caa3-4f8c-8bf4-ed1ab5b97c3a) |
+HTML variant (use if you want fixed preview sizes in README):
+<p>
+  <img src="screenshots/desktop.png" alt="Desktop view — 1440x900" width="800" style="margin-right:12px" />
+  <img src="screenshots/tablet.png" alt="Tablet view — 1024x768" width="420" style="margin-right:12px" />
+  <img src="screenshots/mobile.png" alt="Mobile view — 375x812" width="200" />
+</p>
+<p><em>Left: Desktop. Center: Tablet. Right: Mobile (including smallest 320px breakpoint).</em></p>
 
 
-## Documentation
+## Performance Goals
 
-- [DOCUMENTATION.md](./DOCUMENTATION.md) - Comprehensive technical documentation
-
-## Performance Metrics
-
-**Lighthouse Scores (Target)**
+**Lighthouse Metrics**
 - Performance: 90+
 - Accessibility: 90+
 - Best Practices: 100
@@ -240,26 +230,24 @@ NEXT_PUBLIC_WS_URL=your-websocket-url
 - FID (First Input Delay): <100ms
 - CLS (Cumulative Layout Shift): <0.1
 
-**Bundle Size**
+**Bundle Size Estimates**
 - Main bundle: ~256 KB
-- Initial JS: ~142 KB
+- Initial JavaScript: ~142 KB
 - CSS: ~12 KB
 
-## Architecture Highlights
+## Architectural Overview
 
-**Atomic Components**
-- 5 atoms (Button, Badge, Avatar, IconButton, MiniChart)
-- 4 molecules (Tooltip, Modal, Popover, SearchBar)
-- 5 organisms (TokenCardGrid, TokenTable, ErrorBoundary, etc.)
+### Component Breakdown
+- **Atoms**: Basic UI components (Button, Badge, Avatar, etc.)
+- **Molecules**: Composed UI elements (Tooltip, Modal, etc.)
+- **Organisms**: Complex components (TokenCardGrid, TokenTable, etc.)
 
-**DRY Principles**
-- Shared formatters (currency, price, percentage)
-- Reusable hooks (useWebSocketMock)
-- Centralized types (TokenPair, PriceUpdate)
-- API abstraction layer
+### DRY Principles
+- Shared formatters for currency and price.
+- Reusable hooks for common functionality.
+- Centralized type definitions for consistency.
 
-**Type Safety**
-- 100% TypeScript coverage
-- No any types
-- Strict null checks
-- Comprehensive interfaces
+### Type Safety
+- Achieves comprehensive TypeScript coverage.
+- Implements strict null checks.
+- Provides detailed interfaces for all components.
