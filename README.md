@@ -99,16 +99,6 @@ app/
 - Progressive loading of 20 tokens as the user scrolls down.
 - Total capacity of 100 tokens per column, with a scroll trigger set at 200px from the bottom.
 
-### Unique ID Management
-```typescript
-// Unique ID ranges for each token status
-const statusOffsets = {
-  'new': 0,           // IDs 0-999
-  'final-stretch': 1000,  // IDs 1000-1999
-  'migrated': 2000,   // IDs 2000-2999
-}
-```
-
 ### Real-Time Price Updates
 - Simulated WebSocket updates using setInterval.
 - Randomly updates 2-5 tokens every 2 seconds.
